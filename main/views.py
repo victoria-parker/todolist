@@ -21,4 +21,4 @@ def create(request):
 
 def viewToDoLists(request):
     l = ToDoList.objects.all()
-    return render(request, "main/viewtodolists.html",{"lists":l} )
+    return render(request, "main/lists.html",{"lists":l} )
