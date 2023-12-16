@@ -1,0 +1,11 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+<h2>Create To do list </h2>
+<form method="post" action="/create/" class="form-group">
+    
+    {% csrf_token %}
+        {{form.name}}
+        <button type="submit" name="save" class="btn btn-outline-success">new</button>
+</form>
+{% endblock %}
