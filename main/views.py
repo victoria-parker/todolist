@@ -18,3 +18,7 @@ def create(request):
       else:      
         form = CreateNewList()
       return render(request, "main/create.html",{"form":form} )
+
+def viewToDoLists(request):
+    l = ToDoList.objects.all()
+    return render(request, "main/viewtodolists.html",{"lists":l} )
