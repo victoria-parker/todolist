@@ -5,7 +5,9 @@
 <form method="post" action="/create/" class="form-group">
     
     {% csrf_token %}
+    <div class="input-group mb-3">
         {{form.name}}
         <button type="submit" name="save" class="btn btn-outline-success">new</button>
+    </div>
 </form>
 {% endblock %}
