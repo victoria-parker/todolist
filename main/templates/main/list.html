@@ -8,7 +8,7 @@
             <div class="input-group-text">
                 <input type="checkbox" class="form-check-input mt-0" value="checked" name="{{item.id|stringformat:'s'}}" aria-label="Checkbox for following text input"             {% if item.complete == True %}checked {% endif %}>        
             </div>
-            <input type="text" value="{{item.text}}" class="form-control" aria-label="Edit item text">
+            <input type="text" value="{{item.text}}" class="form-control" aria-label="Edit item text" name="item_{{item.id}}_txt">
         </div>
     {% endfor %}
     <div class="input-group mb-3">

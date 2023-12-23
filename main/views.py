@@ -29,17 +29,22 @@ def listItems(request,id):
     if request.method == 'POST':
 
         # * FOR NEW ITEMS
-        if 'newItem' in request.POST:
+        if 'newItem' in request.POST and len(request.POST.get('new')) is not 0:
             item_txt = request.POST.get('new')
             Item.objects.create(todoList=todolist, text=item_txt, complete=False)
 
         # * FOR UPDATING ITEMS
         if 'save' in request.POST:
+            print(request.POST)
             for item in todolist.items.all():
+                # updates check
                 if request.POST.get(str(item.id)) == 'checked':
                     item.complete = True
                 else:
                     item.complete = False
+                #updates text
+                item.text = request.POST.get('item_'+str(item.id)+'_txt')
+
                 item.save()
 
         return redirect('listitems', id=id)
