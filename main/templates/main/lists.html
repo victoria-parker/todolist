@@ -4,7 +4,7 @@
     <h2>All your List</h2>
     <ul class="list-group">
         {% for list in lists %}
-            <li  class="list-group-item"><a href="/">{{list.name}}</a></li>
+            <li  class="list-group-item"><a href="{{list.id}}">{{list.name}}</a></li>
         {% endfor %}
     </ul>
 </div>

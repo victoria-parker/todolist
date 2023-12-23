@@ -1,0 +1,20 @@
+{% extends "main/base.html" %}
+{% block content %}
+<h1>Hello the list name is {{list.name}}</h1>
+<form action="" method="POST">
+    {% csrf_token %}
+    {% for item in list.items.all %}
+        <div class="input-group mb-3">
+            <div class="input-group-text">
+                <input type="checkbox" class="form-check-input mt-0" value="checked" name="{{item.id|stringformat:'s'}}" aria-label="Checkbox for following text input"             {% if item.complete == True %}checked {% endif %}>        
+            </div>
+            <input type="text" value="{{item.text}}" class="form-control" aria-label="Edit item text">
+        </div>
+    {% endfor %}
+    <div class="input-group mb-3">
+        <input type="text" name="new" class="form-control">
+        <button type="submit" name="newItem" class="btn btn-outline-success">new</button>
+    </div>
+    <button type="submit" name="save" value="save" class="btn btn-success">Save</button>
+</form>
+{% endblock %}
