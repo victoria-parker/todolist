@@ -13,7 +13,7 @@ def create(request):
         if form.is_valid():
             n = form.cleaned_data["name"]
             t = ToDoList.objects.create(name=n, user=request.user)
-        return HttpResponseRedirect("/")
+        return redirect("viewtodolists")
       
       else:      
         form = CreateNewList()
