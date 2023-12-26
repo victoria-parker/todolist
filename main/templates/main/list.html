@@ -3,18 +3,18 @@
 <h1>Hello the list name is {{list.name}}</h1>
 <form action="" method="POST">
     {% csrf_token %}
-    {% for item in list.items.all %}
-        <div class="input-group mb-3">
-            <div class="input-group-text">
-                <input type="checkbox" class="form-check-input mt-0" value="checked" name="{{item.id|stringformat:'s'}}" aria-label="Checkbox for following text input"             {% if item.complete == True %}checked {% endif %}>        
-            </div>
-            <input type="text" value="{{item.text}}" class="form-control" aria-label="Edit item text" name="item_{{item.id}}_txt">
-        </div>
-    {% endfor %}
     <div class="input-group mb-3">
         <input type="text" name="new" class="form-control">
         <button type="submit" name="newItem" class="btn btn-outline-success">new</button>
     </div>
+    {% for item in items %}
+        <div class="input-group mb-3">
+            <div class="input-group-text">
+                <input type="checkbox" class="form-check-input mt-0" value="checked" name="{{item.id|stringformat:'s'}}" aria-label="Checkbox for following text input"             {% if item.complete == True %}checked {% endif %}>        
+            </div>
+            <input type="text" value="{{item.text}}" class="form-control" aria-label="Edit item text" name="item_{{item.id}}_txt"><div><a href="" class="btn btn-outline-secondary"><i class="fas fa-trash-alt"></i></a></div> 
+        </div>
+    {% endfor %}
     <button type="submit" name="save" value="save" class="btn btn-success">Save</button>
 </form>
 {% endblock %}

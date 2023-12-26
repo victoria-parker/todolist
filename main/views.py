@@ -49,4 +49,5 @@ def listItems(request,id):
 
         return redirect('listitems', id=id)
     else:
-        return render(request,'main/list.html',{'list': todolist})
+        items = todolist.items.all().order_by('-id')
+        return render(request,'main/list.html',{'list': todolist, 'items': items})
