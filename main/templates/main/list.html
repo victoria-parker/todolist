@@ -12,7 +12,7 @@
             <div class="input-group-text">
                 <input type="checkbox" class="form-check-input mt-0" value="checked" name="{{item.id|stringformat:'s'}}" aria-label="Checkbox for following text input"             {% if item.complete == True %}checked {% endif %}>        
             </div>
-            <input type="text" value="{{item.text}}" class="form-control" aria-label="Edit item text" name="item_{{item.id}}_txt"><div><a href="" class="btn btn-outline-secondary"><i class="fas fa-trash-alt"></i></a></div> 
+            <input type="text" value="{{item.text}}" class="form-control" aria-label="Edit item text" name="item_{{item.id}}_txt"><div><a href="{% url 'deleteItem' list_id=item.todoList_id item_id=item.id %}" class="btn btn-outline-secondary"><i class="fas fa-trash-alt"></i></a></div> 
         </div>
     {% endfor %}
     <button type="submit" name="save" value="save" class="btn btn-success">Save</button>

@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CreateNewList
 from .models import ToDoList, Item
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
+
 
 def index(request):
     return render(request, "main/index.html",{})
@@ -51,3 +52,8 @@ def listItems(request,id):
     else:
         items = todolist.items.all().order_by('-id')
         return render(request,'main/list.html',{'list': todolist, 'items': items})
+
+def deleteItem(request,item_id,list_id):
+        item = get_object_or_404(Item, pk=item_id, todoList_id=list_id)
+        item.delete()
+        return redirect('listitems', id=list_id)
