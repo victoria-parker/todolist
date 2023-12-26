@@ -4,7 +4,10 @@
     <h2>All your List</h2>
     <ul class="list-group">
         {% for list in lists %}
-            <li  class="list-group-item"><a href="{{list.id}}">{{list.name}}</a></li>
+            <li  class="list-group-item d-flex justify-content-between">
+                <a href="{{list.id}}">{{list.name}}</a>
+                <a href="{% url 'deleteList' id=list.id %}" class="btn btn-outline-secondary"><i class="fas fa-trash-alt"></i></a>
+            </li>
         {% endfor %}
     </ul>
 </div>

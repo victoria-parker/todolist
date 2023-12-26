@@ -57,3 +57,8 @@ def deleteItem(request,item_id,list_id):
         item = get_object_or_404(Item, pk=item_id, todoList_id=list_id)
         item.delete()
         return redirect('listitems', id=list_id)
+
+def deleteList(request,id):
+        todo_list = get_object_or_404(ToDoList, pk=id)
+        todo_list.delete()
+        return redirect("viewtodolists")
