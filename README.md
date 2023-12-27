@@ -9,21 +9,6 @@ Built with Django, this project leverages Python for backend functionality and i
 ## Screenshots and Demo
 ![To do app image ](./todolist.png)
 
-## Installation
-
-For developers interested in running this application locally:
-
-1. Clone this repository.
-2. Navigate to the project directory.
-3. Create a virtual environment: `python -m venv env`
-4. Activate the virtual environment: 
-   - On Windows: `.\env\Scripts\activate`
-   - On macOS/Linux: `source env/bin/activate`
-5. Install project dependencies: `pip install -r requirements.txt`
-6. Apply database migrations: `python manage.py migrate`
-7. Run the development server: `python manage.py runserver`
-8. Access the application at `http://localhost:8000/`
-
 ## Usage
 
 This application facilitates efficient task management by allowing users to:
