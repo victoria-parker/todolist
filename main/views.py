@@ -62,3 +62,18 @@ def deleteList(request,id):
         todo_list = get_object_or_404(ToDoList, pk=id)
         todo_list.delete()
         return redirect("viewtodolists")
+
+def editList(request,id):
+        todolist = get_object_or_404(ToDoList, pk=id)
+        # * FOR UPDATING ITEMS
+        if 'save' in request.POST:
+            #updates name
+            todolist.name = request.POST.get('todolist_name')
+            todolist.save()
+            return redirect('viewtodolists')
+
+        return render(request,'main/edit.html',{'list': todolist})
+
+        
+
+
